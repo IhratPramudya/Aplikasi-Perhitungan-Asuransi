@@ -9,6 +9,7 @@ export const config = {
     pages: {
         signIn: '/sign-in',
         error: '/sign-in',
+        signOut: '/',
     },
     session: {
         strategy: 'jwt',
@@ -85,7 +86,7 @@ export const config = {
                 }
             }
             return token;
-        }
+        },
     }
 } satisfies NextAuthConfig;
 

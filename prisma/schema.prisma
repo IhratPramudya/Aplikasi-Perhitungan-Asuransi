@@ -98,3 +98,21 @@ model Cart {
   createdAt     DateTime @default(now()) @db.Timestamp(6)
   user          User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+
+model Contract {
+  id         Int     @id @default(autoincrement())
+  kontrakNo  String  @unique
+  clientName String
+  otr        Int
+  schedules Schedule []
+}
+
+model Schedule {
+  id                 Int      @id @default(autoincrement())
+  angsuranKe         Int
+  angsuranPerBulan   Int
+  tanggalJatuhTempo  DateTime
+  contractId         String
+  contract           Contract @relation(fields: [contractId], references: [kontrakNo])
+}
